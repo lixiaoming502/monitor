@@ -1,4 +1,4 @@
-package com.zhonggu.bluevally;
+package com.zhonggu.monitor;
 
 /**
  * Created by lixiaoming on 2017/7/10.

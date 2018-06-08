@@ -18,7 +18,7 @@
         </javaTypeResolver>
 
         <!-- generate Model -->
-        <javaModelGenerator targetPackage="com.zhonggu.bluevally.model" targetProject="/Users/lixiaoming/mywork/bluevally/user-service/src/main/java">
+        <javaModelGenerator targetPackage="com.zhonggu.monitor.model" targetProject="/Users/lixiaoming/mywork/test/monitor/src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -26,12 +26,12 @@
 
 
         <!-- generate xml -->
-        <sqlMapGenerator targetPackage="com.zhonggu.bluevally.dao"  targetProject="/Users/lixiaoming/mywork/bluevally/user-service/src/main/resources">
+        <sqlMapGenerator targetPackage="com.zhonggu.monitor.dao"  targetProject="/Users/lixiaoming/mywork/test/monitor/src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- generate Mapper -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhonggu.bluevally.dao"  targetProject="/Users/lixiaoming/mywork/bluevally/user-service/src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zhonggu.monitor.dao"  targetProject="/Users/lixiaoming/mywork/test/monitor/src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
@@ -39,7 +39,8 @@
 
         <!--<table schema="" tableName="dt_weibo_word_tag" domainObjectName="Book"></table>-->
         <!--<table schema="" tableName="t_clusters_results"></table>-->
-        <table schema="" tableName="t_user" domainObjectName="User"></table>
+        <table schema="" tableName="t_event_trace" domainObjectName="EventTrace"></table>
+        <table schema="" tableName="t_trace_cfg" domainObjectName="TraceCfg"></table>
 
 
     </context>

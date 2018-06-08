@@ -24,10 +24,6 @@
         <property name="dataSource" ref="talent-ds" />
     </bean>
 
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.zhonggu.bluevally.dao.UserMapper" />
-    </bean>
-
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="talent-ds"/>
