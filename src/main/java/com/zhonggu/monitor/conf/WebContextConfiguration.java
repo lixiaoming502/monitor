@@ -1,5 +1,6 @@
-package com.zhonggu.monitor.ext;
+package com.zhonggu.monitor.conf;
 
+import com.zhonggu.monitor.ext.SnakeToCamelModelAttributeMethodProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
