@@ -8,6 +8,9 @@ import com.zhonggu.monitor.model.TraceCfgExample;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,10 +26,12 @@ public class EventTraceService {
     @Autowired
     private TraceCfgMapper traceCfgMapper ;
 
-    public void addTraceEvent(EventTrace eventTrace){
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,rollbackFor=Exception.class)
+    public void addTraceEvent(EventTrace eventTrace) throws Exception {
         if(isOn(eventTrace.getModuleName(),eventTrace.getTraceKey())){
             eventTraceMapper.insert(eventTrace);
         }
+       // throw new Exception("测试！");
     }
 
     public boolean isOn(String moduleName, String traceKey) {

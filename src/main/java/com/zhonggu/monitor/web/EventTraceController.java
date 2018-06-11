@@ -23,7 +23,7 @@ public class EventTraceController {
     private static Logger logger = LoggerFactory.getLogger(EventTraceController.class);
 
     @RequestMapping("/reportme")
-    public RespCode reportMe(EventTrace eventTrace) {
+    public RespCode reportMe(EventTrace eventTrace) throws Exception {
         eventTraceService.addTraceEvent(eventTrace);
         return RespCode.SUCCESS;
     }

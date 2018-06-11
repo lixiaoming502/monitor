@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component  
 public class TimeInterceptor {  
   
-    private static Log logger = LogFactory.getLog(TimeInterceptor.class);  
+    private static Log logger = LogFactory.getLog("timeLog");
   
     // 一分钟，即60000ms  
     private static final long ONE_MINUTE = 60000;  
