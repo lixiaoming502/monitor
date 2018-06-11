@@ -1,0 +1,1 @@
+java -Xmx256m -Xms256m -XX:MaxMetaspaceSize=256m -XX:-UseCompressedClassPointers -Dspring.profiles.active=dev

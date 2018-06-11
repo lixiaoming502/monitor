@@ -1,13 +1,15 @@
 #!/bin/bash
-
-pid=$(ps x | grep user-service-0.0.1-SNAPSHOT.jar|grep $2 | grep -v grep | awk '{print $1}')
+jvm_arg='-Xmx128m -Xms128m -XX:MaxMetaspaceSize=50m -XX:-UseCompressedClassPointers'
+jar_name='monitor-service-0.0.1-SNAPSHOT.jar'
+service_name='monitor-service'
+pid=$(ps x | grep $jar_name|grep $2 | grep -v grep | awk '{print $1}')
 
 start(){
        if [ $pid ]
                        then
                        echo "service already started"
                else
-                       nohup /usr/local/product/tools/jdk1.8.0_131/bin/java -Dspring.profiles.active=$1 -jar user-service-0.0.1-SNAPSHOT.jar 1>/dev/null 2>/var/log/user-service-$1.log &
+                       nohup java $jvm_arg -Dspring.profiles.active=$1 -jar $jar_name 1>/dev/null 2>/var/log/$service_name-$1.log &
                        echo "service start complete"
                fi
 }

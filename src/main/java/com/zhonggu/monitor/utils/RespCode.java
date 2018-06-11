@@ -1,4 +1,4 @@
-package com.zhonggu.monitor;
+package com.zhonggu.monitor.utils;
 
 /**
  * Created by lixiaoming on 2017/7/10.

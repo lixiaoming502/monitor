@@ -1,10 +1,13 @@
 package com.zhonggu.monitor.web;
 
-import com.zhonggu.monitor.RespCode;
-import com.zhonggu.monitor.dao.EventTraceMapper;
 import com.zhonggu.monitor.model.EventTrace;
+import com.zhonggu.monitor.service.EventTraceService;
+import com.zhonggu.monitor.utils.RespCode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,12 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventTraceController {
 
     @Autowired
-    private EventTraceMapper eventTraceMapper ;
+    private EventTraceService eventTraceService ;
 
-    @RequestMapping("/add")
-    public RespCode add(EventTrace eventTrace) {
-        //TODO:如果跟踪开关（t_trace_cfg）是关闭的，则忽略
-        eventTraceMapper.insert(eventTrace);
+    private static Logger logger = LoggerFactory.getLogger(EventTraceController.class);
+
+    @RequestMapping("/reportme")
+    public RespCode reportMe(EventTrace eventTrace) {
+        eventTraceService.addTraceEvent(eventTrace);
         return RespCode.SUCCESS;
     }
+
+    @RequestMapping("/allowme")
+    public String allowMe(@RequestParam("module_name") String moduleName,
+                          @RequestParam("trace_key") String traceKey) {
+        return ""+eventTraceService.isOn(moduleName,traceKey);
+    }
+
+
 }

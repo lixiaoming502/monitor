@@ -3,10 +3,11 @@ CREATE TABLE `t_event_trace` (
   `module_name` varchar(30) NOT NULL DEFAULT '' COMMENT '调用模块名称',
   `event_name` varchar(200) DEFAULT NULL COMMENT '事件',
   `trace_key` varchar(100) DEFAULT NULL COMMENT '跟踪标示，如用户id',
+  `event_stage` int(11) DEFAULT NULL COMMENT '0:开始 1：完成 2：进入',
   `thread_id` varchar(20) DEFAULT NULL,
   `trace_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `t_trace_cfg` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
