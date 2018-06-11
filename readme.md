@@ -10,7 +10,7 @@
 
 ### 1.2 请求说明
 > 请求方式：GET<br>
-请求URL ：[/trace/add](#)
+请求URL ：[/trace/reportme](#)
 
 ### 1.3 请求参数
 
@@ -19,6 +19,7 @@
 module_name       |string        |模块名称
 event_name       |string        |事件内容
 trace_key       |string        |跟踪标示，如用户id
+stage       |int        |事件阶段 0：开始 1：完成 2：进入事件
 
 ### 1.4 返回结果
 正常情况下返回SUCCESS
