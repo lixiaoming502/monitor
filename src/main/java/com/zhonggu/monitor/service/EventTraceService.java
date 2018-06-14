@@ -28,9 +28,10 @@ public class EventTraceService {
 
     @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,rollbackFor=Exception.class)
     public void addTraceEvent(EventTrace eventTrace) throws Exception {
-        if(isOn(eventTrace.getModuleName(),eventTrace.getTraceKey())){
-            eventTraceMapper.insert(eventTrace);
-        }
+       /* if(isOn(eventTrace.getModuleName(),eventTrace.getTraceKey())){
+
+        }*/
+        eventTraceMapper.insert(eventTrace);
        // throw new Exception("测试！");
     }
 
